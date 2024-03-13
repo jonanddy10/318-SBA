@@ -1,0 +1,1 @@
+// add a middleware function that returns only vegan or non-vegan
