@@ -13,8 +13,8 @@ router.post("/", (req, res) => {
 
 })
 // R: Read/get
-router.get("/", getFood => {
-
+router.get("/", (req, res, next) => {
+    res.render('/', {data: food})
 })
 // U: Update/patch
 router.patch("/")
@@ -40,7 +40,6 @@ function getFood(req, res, next) {
 // retrieve by type
 function getType(req, res, next) {
     getFood()
-    if()
 }
 
 export default router

@@ -6,28 +6,19 @@ import foodRouter from "./routes/food.mjs"
 // declarations
 const app = express()
 const PORT = 3000
+app.set('view engine', 'ejs')
 
 // routes
 app.use("/food", foodRouter)
 // app.use("/drink", drinkRouter)
 // app.use("/dessert", dessertRouter)
 
-// C R U D  R O U T E S 
-
-// C: Create/post
-app.post("/")
-// R: Read/get
-app.get("/")
-// U: Update/patch
-app.patch("/")
-// D: Delete
-app.delete("/")
-
-// middleware
-
-// error-handling
+// error-handling middleware
 app.use((err, _req, res, _next)  => {
-    res.status(400).send({ message : "theres been an error"})
+    res.status(404).json({ message : "nothing found here"})
+})
+app.use((err, _req, res, _next) => {
+    res.status(500).json({ message: err.message })
 })
 
 // listeners
