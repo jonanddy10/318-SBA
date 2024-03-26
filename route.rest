@@ -1,3 +1,27 @@
-// Read data
+// C: create/post
+POST http://localhost:3000/food/
 
+###
+// R: read/get
 GET http://localhost:3000/food/
+
+###
+// U: update/patch
+PATCH http://localhost:3000/food/
+Content-Type: application/json
+
+[
+    {
+        "name": "Macaroni",
+        "type": "Lunch"
+    }
+]
+###
+// D: delete
+DELETE http://localhost:3000/food/
+
+
+// to use other routes, change the route name "/food" to "/drink" or "/dessert" (singular)
+
+// NOTE: to update the drink or dessert route you must use their respective schema in order 
+//       to succesfully replace existing data.
