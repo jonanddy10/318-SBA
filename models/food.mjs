@@ -1,4 +1,3 @@
-
 // frame:
 const foodSchema = ({
     name: {

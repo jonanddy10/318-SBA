@@ -11,7 +11,7 @@ const router = express.Router()
 router.post("/", (req, res) => {
     try {
         dessertDataInMemory = [...dessertData]; 
-        res.status(201).render('dessert', { title: 'dessert Data', message: dessertDataInMemory.map(dessert => `${dessert.name} for ${dessert.type} `)});
+        res.status(201).render('dessert', { title: 'dessert Data', message: dessertDataInMemory.map(dessert => `${dessert.name} is vegan? ${dessert.vegan} `)});
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
@@ -19,7 +19,7 @@ router.post("/", (req, res) => {
 // R: Read/get
 router.get("/", (req, res) => {
     try {
-        res.status(200).render('dessert', { title: 'dessert Data', message: dessertDataInMemory.map(dessert => `${dessert.name} for ${dessert.type} `)});
+        res.status(200).render('dessert', { title: 'dessert Data', message: dessertDataInMemory.map(dessert => `${dessert.name} is vegan? ${dessert.vegan} `)});
     } catch (error) {
         res.status(500).json({ message: error.message });
     }

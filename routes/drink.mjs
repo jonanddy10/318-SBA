@@ -11,7 +11,7 @@ const router = express.Router()
 router.post("/", (req, res) => {
     try {
         drinkDataInMemory = [...drinkData]; 
-        res.status(201).render('drink', { title: 'drink Data', message: drinkDataInMemory.map(drink => `${drink.name} for ${drink.type} `)});
+        res.status(201).render('drink', { title: 'drink Data', message: drinkDataInMemory.map(drink => `${drink.name} for ${drink.type} is hot? ${drink.hot}`)});
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
@@ -19,7 +19,7 @@ router.post("/", (req, res) => {
 // R: Read/get
 router.get("/", (req, res) => {
     try {
-        res.status(200).render('drink', { title: 'drink Data', message: drinkDataInMemory.map(drink => `${drink.name} for ${drink.type} `)});
+        res.status(200).render('drink', { title: 'drink Data', message: drinkDataInMemory.map(drink => `${drink.name} for ${drink.type} is hot? ${drink.hot}`)});
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
