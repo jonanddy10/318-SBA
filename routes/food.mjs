@@ -1,5 +1,4 @@
 import express from "express"
-import Food from '../models/food.mjs'
 import foodData from "../data/foods.mjs"
 
 let foodDataInMemory = [];
@@ -46,27 +45,5 @@ router.delete("/", (req, res) => {
         res.status(500).json({ message: error.message })
     }
 });
-
-
-// middleware
-
-// retrieve food data
-function getFood(req, res, next) {
-    let food
-    try {
-        food = food.findById(req.params.id)
-
-        if(food == null){res.status(404).json({ message: "cannot find food"})}
-    } catch (error) {
-        return res.status(500).json({ message: error.message })
-    }
-    res.food = food
-    next()
-}
-
-// retrieve food data by type
-function getType(req, res, next) {
-    getFood()
-}
 
 export default router
